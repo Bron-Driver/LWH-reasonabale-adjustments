@@ -104,3 +104,89 @@ function toggleSection(id) {
   var section = document.getElementById(id);
   section.style.display = section.style.display === "none" ? "block" : "none";
 }
+
+// Define each category and its dropdown IDs
+const FRI_CATEGORIES = {
+  shift: {
+    inputs: ["shiftLength", "nightShifts", "shiftGap"],
+    output: "shiftTotal",
+  },
+  workload: {
+    inputs: ["patientLoad", "taskComplexity", "breaksTaken"],
+    output: "workloadTotal",
+  },
+  environment: {
+    inputs: ["restArea", "envComfort", "sleep24h"],
+    output: "environmentTotal",
+  },
+  psych: {
+    inputs: ["distressExposure", "supportAccess"],
+    output: "psychTotal",
+  },
+  health: {
+    inputs: ["fatigueSigns"],
+    output: "healthTotal",
+  },
+};
+
+// Generic function to update any category total
+function updateFRICategoryTotal(categoryKey) {
+  const category = FRI_CATEGORIES[categoryKey];
+  let total = 0;
+
+  category.inputs.forEach((id) => {
+    const value = parseInt(document.getElementById(id)?.value || "0");
+    total += value;
+  });
+
+  document.getElementById(category.output).textContent = total;
+  updateFRISummary(); // Always refresh the grand total + risk level
+}
+
+// Update the grand total and risk level
+function updateFRISummary() {
+  const shift =
+    parseInt(document.getElementById("shiftTotal").textContent) || 0;
+  const workload =
+    parseInt(document.getElementById("workloadTotal").textContent) || 0;
+  const environment =
+    parseInt(document.getElementById("environmentTotal").textContent) || 0;
+  const psych =
+    parseInt(document.getElementById("psychTotal").textContent) || 0;
+
+  const total = shift + workload + environment + psych;
+  const totalCell = document.getElementById("FRI-total-value");
+  const levelCell = document.getElementById("FRI-risk-level");
+
+  totalCell.textContent = total;
+  levelCell.classList.remove("low", "moderate", "high", "critical");
+
+  if (total <= 6) {
+    levelCell.textContent = "Low";
+    levelCell.classList.add("low");
+  } else if (total <= 13) {
+    levelCell.textContent = "Moderate";
+    levelCell.classList.add("moderate");
+  } else if (total <= 19) {
+    levelCell.textContent = "High";
+    levelCell.classList.add("high");
+  } else {
+    levelCell.textContent = "Critical";
+    levelCell.classList.add("critical");
+  }
+}
+
+// Attach onchange listeners to all dropdowns
+function initFRIListeners() {
+  Object.entries(FRI_CATEGORIES).forEach(([key, category]) => {
+    category.inputs.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) {
+        el.addEventListener("change", () => updateFRICategoryTotal(key));
+      }
+    });
+  });
+}
+
+// Initialize listeners once DOM is ready
+document.addEventListener("DOMContentLoaded", initFRIListeners);
