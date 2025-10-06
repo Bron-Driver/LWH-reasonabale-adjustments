@@ -62,20 +62,29 @@ Ensure divs use `<div id="ID" class="page">` and toggle visibility via JS.
             <!-- ==== ADD A SINGLE SECTION ==== -->
             <!-- To add a new section (simple link), copy and update one of the lines below -->
             <li class="nav-item"><a class="nav-link" onclick="showPage('home')">Home</a></li>
-            <li class="nav-item"><a class="nav-link" onclick="showPage('RAP')">Process</a></li>
-            <li class="nav-item"><a class="nav-link" onclick="showPage('HPG')">Health Passport Guidance</a></li>
-            <li class="nav-item"><a class="nav-link" onclick="showPage('ATWP')">Access to Work Process</a></li>
-            <li class="nav-item"><a class="nav-link" onclick="showPage('UWP')">Understanding workplace adjustments</a>
+            <!-- Content Dropdown Menu -->
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="courseCatalogueDropdown" role="button"
+                data-bs-toggle="dropdown" aria-expanded="false">
+                Resources
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="courseCatalogueDropdown">
+                <li><a class="dropdown-item" onclick="showPage('RAP')">Process</a></li>
+                <li><a class="dropdown-item" onclick="showPage('HPG')">Health Passport Guidance</a></li>
+                <li><a class="dropdown-item" onclick="showPage('ATWP')">Access to Work Process</a></li>
+                <li><a class="dropdown-item" onclick="showPage('UWP')">Understanding workplace adjustments</a></li>
+                <li><a class="dropdown-item" onclick="showPage('AR')">Additional Resources</a></li>
+                <li><a class="dropdown-item" onclick="showPage('QRG1')">Quick Reference Guide: Supporting Neurodivergent
+                    Staff with Reasonable Adjustments</a></li>
+                <li><a class="dropdown-item" onclick="showPage('ProcurementProcess')">Procurement Process</a></li>
+                <li><a class="dropdown-item" onclick="showPage('RAFAQ')">FAQs: Reasonable Adjustments (RA) at Work</a>
+                </li>
+                <li><a class="dropdown-item" onclick="showPage('FRI')">Fatigue Risk Index</a></li>
+              </ul>
             </li>
-            <li class="nav-item"><a class="nav-link" onclick="showPage('AR')">Additional Resources</a></li>
-            <li class="nav-item"><a class="nav-link" onclick="showPage('QRG1')">Quick Reference Guide: Supporting
-                Neurodivergent Staff with Reasonable Adjustments</a></li>
-            <li class="nav-item"><a class="nav-link" onclick="showPage('ProcurementProcess')">Procurement Process</a>
-            </li>
-            <li class="nav-item"><a class="nav-link" onclick="showPage('RAFAQ')">FAQs: Reasonable Adjustments (RA) at
-                Work</a>
-            </li>
-            <li class="nav-item"><a class="nav-link" onclick="showPage('FRI')">Fatigue Risk Index</a></li>
+
+
+
 
 
           </ul>
@@ -1336,7 +1345,8 @@ Ensure divs use `<div id="ID" class="page">` and toggle visibility via JS.
                       <h3>4. Rating Criteria Column</h3>
                       <p>Use this to determine the risk rating: <strong>0 = Low</strong>, <strong>1 = Moderate</strong>,
                         <strong>2 = High</strong>. For example, shift length under 10 hrs = 0, 10–12 hrs = 1, over 12
-                        hrs = 2.</p>
+                        hrs = 2.
+                      </p>
                     </section>
 
                     <section>
