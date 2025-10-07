@@ -26,6 +26,12 @@ Ensure divs use `<div id="ID" class="page">` and toggle visibility via JS.
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" />
   <!-- Custom Stylesheet -->
   <link href="style.css" rel="stylesheet" />
+  <script type="module">
+    import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs";
+    // Don’t render on load, we’ll trigger it manually
+    mermaid.initialize({ startOnLoad: false });
+    window.mermaid = mermaid; // expose globally so showPage() can use it
+  </script>
 </head>
 
 <body>
@@ -180,6 +186,7 @@ Ensure divs use `<div id="ID" class="page">` and toggle visibility via JS.
   <!-- ================================= -->
   <!-- ====== Process SECTION ====== -->
   <!-- ================================= -->
+  <!-- Process Section -->
   <div id="RAP" class="page">
     <div class="container">
       <div class="row">
@@ -189,183 +196,144 @@ Ensure divs use `<div id="ID" class="page">` and toggle visibility via JS.
         </div>
         <!-- Main Description -->
         <div class="col-md-8">
-          <p>Here you will find the Reasonable Adjustment Processs.</p>
+
         </div>
       </div>
       <div class="row">
         <div class="col-md">
+          <div id="rapDiagram" class="mermaid">
+            flowchart TD
 
-          <div class="parent">
-            <div class="div1">
-              <div class="step">
-                <section class="trigger-list">
-                  <div class="flow-box">
-                    <h3>Example Triggers</h3>
-                    <ul class="trigger-list">
-                      <li>Resuming from long-term sick leave</li>
-                      <li>Injury or health concern</li>
-                      <li>Mental health concern</li>
-                      <li>Health Passport</li>
-                      <li>Recent change affecting ability to work</li>
-                      <li>Neurodiversity-related support (using Neurodiverse Toolkit)</li>
-                      <li>Wellbeing conversation outcome</li>
-                      <li>Occupational Health Advice</li>
-                      <li>Risk Assessment (including Pregnancy and Stress)</li>
-                    </ul>
-                  </div>
-                </section>
-              </div>
-            </div>
-            <div class="div4 arrow">
-              ↓
-            </div>
+            %% --- Node definitions ---
 
-            <div class="div7">
-              <div class="step">
-                <div class="flow-box">
-                  <h3>Trigger initiates the process</h3>
-                </div>
+            A["
+            <div class="flow-box">
+              <h3>Example Triggers</h3>
+              <ul>
+                <li>Resuming from long-term sick leave</li>
+                <li>Injury or health concern</li>
+                <li>Mental health concern</li>
+                <li>Health Passport</li>
+                <li>Recent change affecting ability to work</li>
+                <li>Neurodiversity-related support (using Neurodiverse Toolkit)</li>
+                <li>Wellbeing conversation outcome</li>
+                <li>Occupational Health Advice</li>
+                <li>Risk Assessment (including Pregnancy and Stress)</li>
+              </ul>
+            </div>
+            "]
 
-              </div>
+            B["
+            <div class="flow-box">
+              <h3>Trigger initiates the process</h3>
             </div>
+            "]
 
-            <div class="div10 arrow">
-              ↓</div>
+            C["
+            <div class="flow-box">
+              <h3>Refer to Reasonable Adjustments Toolkit for guidance and templates available on the Intranet under
+                Reasonable Adjustments Toolkit</h3>
+            </div>
+            "]
 
-            <div class="div13">
-              <div class="step">
-                <div class="flow-box">
-                  <h3>Refer to Reasonable Adjustments Toolkit for guidance and templates available on the Intranet under
-                    Reasonable Adjustments Toolkit</h3>
-                </div>
-              </div>
+            D["
+            <div class="flow-box">
+              <h3>Agree Reasonable Adjustments needed (Employee/Manager) and record in Employees Health Passport
+                found in the Toolkit</h3>
             </div>
-            <div class="div16 arrow">
-              ↓</div>
+            "]
 
-            <div class="div19">
-              <div class="step">
-                <div class="flow-box">
-                  <h3>Agree Reasonable Adjustments needed (Employee/Manager) and record in Employees Health Passport
-                    found in the Toolkit</h3>
-                </div>
-              </div>
+            E["
+            <div class="flow-box">
+              <h3>Expert Advisors:</h3>
+              <ul>
+                <li>Line Manager</li>
+                <li>H&S Manager - H&S Page</li>
+                <li>DSE Assessors - H&S Page</li>
+                <li>HR Advisor/HRBP - HR Page</li>
+              </ul>
             </div>
-            <div class="div20 arrow">
-              →</div>
-            <div class="div21">
-              <div class="step">
-                <section class="trigger-list">
-                  <div class="flow-box">
-                    <h3>Expert Advisors:</h3>
-                    <ul class="trigger-list">
-                      <li>Line Manager</li>
-                      <li>H&S Manager - H&S Page</li>
-                      <li>DSE Assessors - H&S Page</li>
-                      <li>HR Advisor/HRBP - HR Page</li>
-                    </ul>
-                  </div>
-                </section>
-              </div>
-            </div>
-            <div class="div22 arrow">
-              ↓</div>
-            <div class="div23">
-              <div class="connector overlapped-arrows">
-                <span class="arrow2 arrow-up">↗</span>
-                <span class="arrow2 arrow-down">↘</span>
-              </div>
-            </div>
-            <div class="div25">
-              <div class="step">
-                <div class="flow-box">
-                  <h3>Create Reasonable Adjustments Plan (RAP) which can be found in the Reasonable Adjustments Toolkit
-                  </h3>
-                </div>
-              </div>
-            </div>
-            <div class="div26 arrow">
-              →</div>
-            <div class="div27">
-              <div class="step">
-                <section class="trigger-list">
-                  <div class="flow-box">
-                    <h3>External Partners:</h3>
-                    <ul class="trigger-list">
-                      <li>Access to Work H&S Page
-                        <a style="color:white;" href="http://www.gov.uk/access-to-work"
-                          target="_blank">http://www.gov.uk/access-to-work</a>
-                      </li>
-                      <li>Occupational Health.</li>
+            "]
 
-                    </ul>
-                  </div>
-                </section>
-              </div>
+            F["
+            <div class="flow-box">
+              <h3>Create Reasonable Adjustments Plan (RAP) which can be found in the Reasonable Adjustments Toolkit
+              </h3>
             </div>
-            <div class="div28 arrow">
-              ↓</div>
-            <div class="div29 arrow">
-              ↗</div>
-            <div class="div30 arrow">
-              ↑</div>
-            <div class="div31">
-              <div class="step">
-                <div class="flow-box">
-                  <h3>In the event there is a cost associated with the Reasonable Adjustments, this will be managed by
-                    the Department/Line Manager. Where the adjustment is major and the cost is high, funding can be
-                    requested through Access to Work. Refer to the Access to Work Process within this Reasonable
-                    Adjustments Toolkit.</h3>
-                </div>
-              </div>
+            "]
+
+            G["
+            <div class="flow-box">
+              <h3>External Partners:</h3>
+              <ul>
+                <li>Access to Work H&S Page
+                  <a href="http://www.gov.uk/access-to-work" target="_blank">http://www.gov.uk/access-to-work</a>
+                </li>
+                <li>Occupational Health.</li>
+
+              </ul>
             </div>
-            <div class="div32 arrow">
-              →</div>
-            <div class="div33">
-              <div class="step">
-                <section class="trigger-list">
-                  <div class="flow-box">
-                    <h3>Approvers:</h3>
-                    <ul class="trigger-list">
-                      <li>H&S Manager</li>
-                      <li>Access to Work</li>
-                      <li>Finance</li>
-                      <li>Procurement</li>
-                    </ul>
-                  </div>
-                </section>
-              </div>
+            "]
+
+            H["
+            <div class="flow-box">
+              <h3>In the event there is a cost associated with the Reasonable Adjustments, this will be managed by
+                the Department/Line Manager. Where the adjustment is major and the cost is high, funding can be
+                requested through Access to Work. Refer to the Access to Work Process within this Reasonable
+                Adjustments Toolkit.</h3>
             </div>
-            <div class="div35 arrow">
-              ↓</div>
-            <div class="div37">
-              <div class="step">
-                <div class="flow-box">
-                  <h3>Update RAP</h3>
-                </div>
-              </div>
+            "]
+
+            I["
+            <div class="flow-box">
+              <h3>Approvers:</h3>
+              <ul>
+                <li>H&S Manager</li>
+                <li>Access to Work</li>
+                <li>Finance</li>
+                <li>Procurement</li>
+              </ul>
             </div>
-            <div class="div40 arrow">
-              ↓</div>
-            <div class="div43">
-              <div class="step">
-                <div class="flow-box">
-                  <h3>Manager and Employee implement RAP and update Health Passport</h3>
-                </div>
-              </div>
+            "]
+
+            J["
+            <div class="flow-box">
+              <h3>Update RAP</h3>
             </div>
-            <div class="div46 arrow">
-              ↓</div>
-            <div class="div49">
-              <div class="step">
-                <div class="flow-box">
-                  <h3>Manager and Employee review RAP every 12 months or earlier if needed/triggered.</h3>
-                </div>
-              </div>
+            "]
+
+            K["
+            <div class="flow-box">
+              <h3>Manager and Employee implement RAP and update Health Passport</h3>
             </div>
+            "]
+
+            L["
+            <div class="flow-box">
+              <h3>Manager and Employee review RAP every 12 months or earlier if needed/triggered.</h3>
+            </div>
+            "]
+
+            %% --- Flow definitions ---
+
+            A --> B
+            B --> C
+            C --> D
+            D --> E
+            D --> F
+            F --> E
+            D --> G
+            F --> G
+            H --> G
+            I --> G
+            F --> H
+            H --> J
+            J --> K
+            K --> L
+
           </div>
-
         </div>
+
       </div>
     </div>
   </div>
@@ -511,184 +479,143 @@ Ensure divs use `<div id="ID" class="page">` and toggle visibility via JS.
         <div class="col-md-8">
         </div>
       </div>
-      <div class="parent">
+      <div id="atwDiagram" class="mermaid">
+        flowchart TD
 
-        <div class="div7">
-          <div class="step">
-            <div class="flow-box">
-              <h3>Member of staff has an issue whereby they may need assistance from Access to Work after all internal
-                options have been exported</h3>
-            </div>
+        %% --- Node definitions ---
 
-          </div>
+        A["
+        <div class="flow-box">
+          <h3>Member of staff has an issue whereby they may need assistance from Access to Work after all internal
+            options have been exported</h3>
         </div>
+        "]
 
-        <div class="div10 arrow">
-          ↓</div>
+        B["
+        <div class="flow-box">
+          <h3>The member of staff will discuss this with their line manager that they will be applying to Access to
+            Work.</h3>
+        </div>
+        "]
 
-        <div class="div13">
-          <div class="step">
-            <div class="flow-box">
-              <h3>The member of staff will discuss this with their line manager that they will be applying to Access to
-                Work.</h3>
-            </div>
-          </div>
+        C["
+        <div class="flow-box">
+          <h3>Member of staff is required to apply to Access to Work themselves directly. They can be assisted by
+            another staff member or manager if necessary. They may need:</h3>
+          <ul>
+            <li>their National Insurance number</li>
+            <li>the workplace address, including postcode</li>
+            <li>the name, email address and work phone number of a workplace contact, for example their manager​
+            </li>
+          </ul>
         </div>
-        <div class="div16 arrow">
-          ↓</div>
+        "]
 
-        <div class="div19">
-          <div class="step">
-            <section class="trigger-list">
-              <div class="flow-box">
-                <h3>Member of staff is required to apply to Access to Work themselves directly. They can be assisted by
-                  another staff member or manager if necessary. They may need:</h3>
-                <ul class="trigger-list">
-                  <li>their National Insurance number</li>
-                  <li>the workplace address, including postcode</li>
-                  <li>the name, email address and work phone number of a workplace contact, for example their manager​
-                  </li>
-                </ul>
-              </div>
-            </section>
-          </div>
-        </div>
-        <div class="div20 arrow">
-          →</div>
-        <div class="div21">
-          <div class="step">
-            <section class="trigger-list">
-              <div class="flow-box">
-                <h3>Access to Work Advice:</h3>
-                <ul class="trigger-list">
-                  <li>0800 121 7479</li>
-                  <li><a style="color:white;" href="http://www.gov.uk/access-to-work"
-                      target="_blank">http://www.gov.uk/access-to-work</a></li>
-                </ul>
-              </div>
-            </section>
-          </div>
-        </div>
-        <div class="div22 arrow">
-          ↓</div>
-        <div class="div23">
-          <div class="connector overlapped-arrows">
-            <span class="arrow2 arrow-up">↗</span>
-            <span class="arrow2 arrow-down">↘</span>
-          </div>
-        </div>
-        <div class="div25">
-          <div class="step">
-            <div class="flow-box">
-              <h3>Access to Work will arrange to conduct a Workplace Assessment. This can be in person if appropriate,
-                or over the telephone. The assessor will discuss the employee’s needs relative to their work.</h3>
-            </div>
-          </div>
-        </div>
-        <div class="div26 arrow">
-          →</div>
-        <div class="div27">
-          <div class="step">
-            <section class="trigger-list">
-              <div class="flow-box">
-                <h3>Supporting Guidance:</h3>
-                <ul class="trigger-list">
-                  <li><a style="color:white;" href="https://www.disabilityrightsuk.org/resources/access-work"
-                      target="_blank">Access to Work | Disability Rights UK</a></li>
-                  <li>H&S Page on Intranet</li>
+        D["<div class="flow-box">
+          <h3>Access to Work Advice:</h3>
+          <ul>
+            <li>0800 121 7479</li>
+            <li><a href="http://www.gov.uk/access-to-work" target="_blank">http://www.gov.uk/access-to-work</a></li>
+          </ul>
+        </div>"]
 
-                </ul>
-              </div>
-            </section>
-          </div>
+        E["
+        <div class="flow-box">
+          <h3>Access to Work will arrange to conduct a Workplace Assessment. This can be in person if appropriate,
+            or over the telephone. The assessor will discuss the employee’s needs relative to their work.</h3>
         </div>
-        <div class="div35 arrow">
-          ↓</div>
-        <div class="div37">
-          <div class="step">
-            <div class="flow-box">
-              <h3>Member of staff receives Access to Work report with recommendations and costs. Member of staff should
-                discuss this report and recommendations with their line manager.</h3>
-            </div>
-          </div>
+        "]
+
+        F["<div class="flow-box">
+          <h3>Supporting Guidance:</h3>
+          <ul>
+            <li><a href="https://www.disabilityrightsuk.org/resources/access-work" target="_blank">Access to Work |
+                Disability Rights UK</a></li>
+            <li>H&S Page on Intranet</li>
+          </ul>
+        </div>"]
+
+        G["
+        <div class="flow-box">
+          <h3>Member of staff receives Access to Work report with recommendations and costs. Member of staff should
+            discuss this report and recommendations with their line manager.</h3>
         </div>
-        <div class="div40a arrow">
-          ↓</div>
-        <div class="div43a">
-          <div class="step">
-            <div class="flow-box">
-              <h3>Line manager should discuss Access to Work recommendations with the H&S Manager and depending on
-                recommendations, include the team who will be responsible for acting on the recommendations. It will
-                then be decided if the recommendations can be implemented by organisation.</h3>
-            </div>
-          </div>
+        "]
+
+        H["
+        <div class="flow-box">
+          <h3>Line manager should discuss Access to Work recommendations with the H&S Manager and depending on
+            recommendations, include the team who will be responsible for acting on the recommendations. It will
+            then be decided if the recommendations can be implemented by organisation.</h3>
         </div>
-        <div class="div44 arrow">
-          →</div>
-        <div class="div45">
-          <div class="step">
-            <section class="trigger-list">
-              <div class="flow-box">
-                <h3>Expert Advice and Approval:</h3>
-                <ul class="trigger-list">
-                  <li>H&S Manager</li>
-                  <li>Finance</li>
-                  <li>Procurement</li>
-                  <li>IT</li>
-                  <li>Estates</li>
-                  <li>HR</li>
-                </ul>
-              </div>
-            </section>
-          </div>
+        "]
+
+        I["
+        <div class="flow-box">
+          <h3>Expert Advice and Approval:</h3>
+          <ul class="trigger-list">
+            <li>H&S Manager</li>
+            <li>Finance</li>
+            <li>Procurement</li>
+            <li>IT</li>
+            <li>Estates</li>
+            <li>HR</li>
+          </ul>
         </div>
-        <div class="div46a arrow">
-          ↓</div>
-        <div class="div47 arrow">
-          ↑</div>
-        <div class="div49">
-          <div class="step">
-            <div class="flow-box">
-              <h3>Appropriate team will assist with purchase and or implementation of the Access to Work recommendations
-                and will pay for all adjustments initially then claim back the agreed percentage from Access to Work.
-                The implementation of any adjustments may involve the inclusion of third parties or contractors, which
-                can take additional time depending on the request. This can sometimes take several weeks/months to fully
-                implement.</h3>
-            </div>
-          </div>
+        "]
+
+        J["
+        <div class="flow-box">
+          <h3>Appropriate team will assist with purchase and or implementation of the Access to Work recommendations
+            and will pay for all adjustments initially then claim back the agreed percentage from Access to Work.
+            The implementation of any adjustments may involve the inclusion of third parties or contractors, which
+            can take additional time depending on the request. This can sometimes take several weeks/months to fully
+            implement.</h3>
         </div>
-        <div class="div50 arrow">
-          ↓</div>
-      </div>
-      <div class="div51">
-        <div class="step">
-          <div class="flow-box">
-            <h3>Member of staff will continue to work with the team implementing the recommendations to ensure they are
-              fit for purpose and meeting their needs.</h3>
-          </div>
+        "]
+
+        K["
+        <div class="flow-box">
+          <h3>Member of staff will continue to work with the team implementing the recommendations to ensure they are
+            fit for purpose and meeting their needs.</h3>
         </div>
-      </div>
-      <div class="div52 arrow">
-        ↓</div>
-      <div class="div53">
-        <div class="step">
-          <div class="flow-box">
-            <h3>If there are any issues with the Access to Work recommendations the member of staff applying is
-              responsible for going back to Access to Work to rectify these.</h3>
-          </div>
+        "]
+
+        L["
+        <div class="flow-box">
+          <h3>If there are any issues with the Access to Work recommendations the member of staff applying is
+            responsible for going back to Access to Work to rectify these.</h3>
         </div>
+        "]
+
+        M["
+        <div class="flow-box">
+          <h3>Once complete the responsible department will complete the paperwork to be reimbursed for the percentage
+            of the costs Access to Work agreed to pay.</h3>
+        </div>
+        "]
+
+        %% --- Flow definitions ---
+
+
+        A --> B
+        B --> C
+        C --> E
+        C --> F
+        C --> D
+        E --> G
+        E --> D
+        E --> F
+        G --> H
+        H --> I
+        H --> J
+        J --> I
+        J --> K
+        K --> L
+        L --> M
+
       </div>
 
-      <div class="div54 arrow">
-        ↓</div>
-      <div class="div55">
-        <div class="step">
-          <div class="flow-box">
-            <h3>Once complete the responsible department will complete the paperwork to be reimbursed for the percentage
-              of the costs Access to Work agreed to pay.</h3>
-          </div>
-        </div>
-      </div>
 
     </div>
     <a class="btn btn-primary w-100 text-start mb-2" href="#"
@@ -1044,6 +971,84 @@ Ensure divs use `<div id="ID" class="page">` and toggle visibility via JS.
 
       <div class="row">
         <div class="col-md">
+
+          <div id="rapDiagram" class="mermaid">
+            flowchart TD
+
+            %% --- Node definitions ---
+
+            A["
+            <div class="flow-box">
+              <h3>Identify Need</h3>
+              <p>Employee identifies the adjustment need and discusses it with their manager.</p>
+            </div>
+            "]
+
+            B["
+            <div class="flow-box">
+              <h3>Manager Oversight</h3>
+              <p>Manager oversees the process with advice from Procurement as required.</p>
+            </div>
+            "]
+
+            C["
+            <div class="flow-box">
+              <h3>Locate the Item</h3>
+              <p>Manager obtains a quote or product code from the vendor, with Procurement support if needed.</p>
+            </div>
+            "]
+
+            D["
+            <div class="flow-box">
+              <h3>Raise Requisition</h3>
+              <p>Manager raises a requisition in the NEP system. Procurement can guide through the process.</p>
+            </div>
+            "]
+
+            E["
+            <div class="flow-box">
+              <h3>Approvals</h3>
+              <p>Sequential approvals from Manager, Budget Holder, and Procurement are required.</p>
+            </div>
+            "]
+
+            F["
+            <div class="flow-box">
+              <h3>Issue Purchase Order</h3>
+              <p>Procurement issues the PO to the Manager, who forwards it to the vendor for invoicing.</p>
+            </div>
+            "]
+
+            G["
+            <div class="flow-box">
+              <h3>Payment</h3>
+              <p>Finance processes the payment and the item is provided to the employee.</p>
+            </div>
+            "]
+
+            H["
+            <div class="flow-box">
+              <h3>Confirmation</h3>
+              <p>Employee confirms the item meets their needs.</p>
+            </div>
+            "]
+
+
+            %% --- Flow definitions ---
+
+            A --> B
+            B --> C
+            C --> D
+            D --> E
+            E --> F
+            F --> G
+            G --> H
+
+
+          </div>
+
+
+
           <!-- Flow Container -->
           <div style="display: grid; grid-template-columns: 1fr; gap: 1rem;">
 

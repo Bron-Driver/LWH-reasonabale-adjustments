@@ -1,9 +1,20 @@
-// Toggle page visibility
+// Toggle page visibility and re-render Mermaid diagrams
 function showPage(pageId) {
+  // Hide all pages
   document
     .querySelectorAll(".page")
     .forEach((page) => page.classList.remove("active"));
-  document.getElementById(pageId)?.classList.add("active");
+
+  // Show the requested page
+  const activePage = document.getElementById(pageId);
+  if (activePage) {
+    activePage.classList.add("active");
+
+    // Render any Mermaid diagrams in this page
+    if (window.mermaid) {
+      mermaid.init(undefined, activePage.querySelectorAll(".mermaid"));
+    }
+  }
 }
 
 // Search input: filters pages + cards
